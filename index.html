@@ -26,6 +26,7 @@
             background-color: #f9f9f9;
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -220,173 +221,163 @@
                 height: 250px;
             }
         }
-       /* Enhanced Flying Book Animation */
-.flying-book {
-    position: fixed;
-    width: 50px;
-    height: 35px;
-    background: linear-gradient(135deg, #8B0000, #B22222);
-    border-radius: 2px 8px 8px 2px;
-    box-shadow: 
-        2px 2px 10px rgba(0,0,0,0.3),
-        inset -2px 0 0 rgba(0,0,0,0.2);
-    z-index: 1000;
-    pointer-events: none;
-    animation: flyAround 25s linear infinite;
-    transform-style: preserve-3d;
-}
+        
+        /* Enhanced Flying Book Animation with Real Covers */
+        .flying-book {
+            position: fixed;
+            width: 80px;
+            height: 110px;
+            z-index: 1000;
+            pointer-events: none;
+            animation: flyAround 25s linear infinite, float 4s ease-in-out infinite;
+            transform-style: preserve-3d;
+            filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.4));
+        }
 
-/* Book spine */
-.flying-book::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 2px;
-    bottom: 2px;
-    width: 4px;
-    background: linear-gradient(to bottom, #5a0b0b, #8B0000, #5a0b0b);
-    border-radius: 1px 0 0 1px;
-}
+        .book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 3px 8px 8px 3px;
+            transform-origin: left center;
+            transition: transform 0.5s ease;
+            box-shadow: 
+                4px 0 8px rgba(0,0,0,0.3),
+                inset 2px 0 0 rgba(255,255,255,0.1);
+        }
 
-/* Book pages */
-.flying-book::after {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 3px;
-    bottom: 3px;
-    right: 3px;
-    background: 
-        repeating-linear-gradient(
-            to bottom,
-            #f8f8f8 0px,
-            #f8f8f8 1px,
-            #e8e8e8 1px,
-            #e8e8e8 2px
-        );
-    border-radius: 0 5px 5px 0;
-    box-shadow: inset 0 0 0 1px #ddd;
-}
+        .book-spine {
+            position: absolute;
+            left: 0;
+            top: 5%;
+            bottom: 5%;
+            width: 8px;
+            background: linear-gradient(to right, #2c1b0d, #5d4037, #2c1b0d);
+            border-radius: 2px 0 0 2px;
+            transform: translateX(-100%);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+        }
 
-/* Book title on spine */
-.flying-book .spine-title {
-    position: absolute;
-    left: -8px;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    color: gold;
-    font-size: 6px;
-    font-weight: bold;
-    white-space: nowrap;
-    text-shadow: 0 0 1px black;
-}
+        .book-pages {
+            position: absolute;
+            left: 0;
+            top: 3%;
+            bottom: 3%;
+            width: 78px;
+            background: 
+                repeating-linear-gradient(
+                    to right,
+                    #f8f8f8 0px,
+                    #f8f8f8 1px,
+                    #e8e8e8 1px,
+                    #e8e8e8 2px
+                );
+            border-radius: 0 5px 5px 0;
+            transform: translateX(-100%);
+            box-shadow: inset 1px 0 0 #ddd;
+        }
 
-/* Book cover details */
-.flying-book .cover-detail {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 15px;
-    height: 20px;
-    background: linear-gradient(45deg, #1a237e, #283593);
-    border-radius: 1px;
-    opacity: 0.8;
-}
+        .flying-book:hover .book-cover {
+            transform: rotateY(-25deg);
+        }
 
-@keyframes flyAround {
-    0% {
-        top: 15%;
-        left: 3%;
-        transform: rotate(0deg) scale(1);
-    }
-    10% {
-        top: 5%;
-        left: 25%;
-        transform: rotate(45deg) scale(1.1);
-    }
-    20% {
-        top: 15%;
-        left: 50%;
-        transform: rotate(90deg) scale(1);
-    }
-    30% {
-        top: 40%;
-        left: 70%;
-        transform: rotate(135deg) scale(0.9);
-    }
-    40% {
-        top: 70%;
-        left: 85%;
-        transform: rotate(180deg) scale(1);
-    }
-    50% {
-        top: 85%;
-        left: 60%;
-        transform: rotate(225deg) scale(1.1);
-    }
-    60% {
-        top: 75%;
-        left: 30%;
-        transform: rotate(270deg) scale(1);
-    }
-    70% {
-        top: 50%;
-        left: 10%;
-        transform: rotate(315deg) scale(0.9);
-    }
-    80% {
-        top: 30%;
-        left: 20%;
-        transform: rotate(360deg) scale(1);
-    }
-    90% {
-        top: 20%;
-        left: 40%;
-        transform: rotate(405deg) scale(1.1);
-    }
-    100% {
-        top: 15%;
-        left: 3%;
-        transform: rotate(360deg) scale(1);
-    }
-}
+        /* Individual book covers */
+        .flying-book.cronicas .book-cover {
+            background-image: url('cronicasdemosiah.jpg');
+        }
 
-/* Add some floating effect */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-5px) rotate(2deg);
-    }
-}
+        .flying-book.animalitos .book-cover {
+            background-image: url('animalitos.jpg');
+        }
 
-.flying-book {
-    animation: flyAround 25s linear infinite, float 3s ease-in-out infinite;
-}
+        .flying-book.ranchero .book-cover {
+            background-image: url('rancherodescongelado.jpg');
+        }
 
-/* Pause animation when hovering over important content */
-.book-card:hover ~ .flying-book,
-.profile-section:hover ~ .flying-book,
-#about:hover ~ .flying-book {
-    animation-play-state: paused;
-}
+        .flying-book.misionero .book-cover {
+            background-image: url('mascarademisionero.jpg');
+        }
 
-/* Multiple flying books */
-.flying-book:nth-child(1) { animation-delay: 0s; }
-.flying-book:nth-child(2) { 
-    animation-delay: -8s; 
-    width: 40px;
-    height: 28px;
-    background: linear-gradient(135deg, #1a237e, #283593);
-}
-.flying-book:nth-child(3) { 
-    animation-delay: -16s; 
-    width: 45px;
-    height: 32px;
-    background: linear-gradient(135deg, #2E7D32, #4CAF50);
-}
+        @keyframes flyAround {
+            0% {
+                top: 10%;
+                left: 2%;
+                transform: rotate(5deg) scale(0.9);
+            }
+            15% {
+                top: 5%;
+                left: 30%;
+                transform: rotate(45deg) scale(1);
+            }
+            30% {
+                top: 20%;
+                left: 60%;
+                transform: rotate(90deg) scale(0.95);
+            }
+            45% {
+                top: 50%;
+                left: 85%;
+                transform: rotate(135deg) scale(0.9);
+            }
+            60% {
+                top: 80%;
+                left: 70%;
+                transform: rotate(180deg) scale(1);
+            }
+            75% {
+                top: 85%;
+                left: 30%;
+                transform: rotate(225deg) scale(0.95);
+            }
+            90% {
+                top: 60%;
+                left: 10%;
+                transform: rotate(315deg) scale(0.9);
+            }
+            100% {
+                top: 10%;
+                left: 2%;
+                transform: rotate(365deg) scale(0.9);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(2deg);
+            }
+        }
+
+        /* Different animation paths for each book */
+        .flying-book.cronicas {
+            animation: flyAround 28s linear infinite, float 5s ease-in-out infinite;
+        }
+
+        .flying-book.animalitos {
+            animation: flyAround 32s linear infinite, float 4.5s ease-in-out infinite;
+            animation-delay: -7s;
+        }
+
+        .flying-book.ranchero {
+            animation: flyAround 30s linear infinite, float 5.5s ease-in-out infinite;
+            animation-delay: -14s;
+        }
+
+        .flying-book.misionero {
+            animation: flyAround 26s linear infinite, float 4s ease-in-out infinite;
+            animation-delay: -21s;
+        }
+
+        /* Pause animation when hovering over important content */
+        .book-card:hover ~ .flying-book,
+        .profile-section:hover ~ .flying-book,
+        #about:hover ~ .flying-book {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body>
@@ -451,39 +442,47 @@
         </section>
         
         <section id="about">
-    <h2>Sobre el Autor</h2>
-    
-    <p>Soy Sergio Nieto, economista y escritor. Mi fe y mi familia son el centro de mi vida y han influido profundamente en mi manera de ver el mundo y de escribir. A lo largo de los años he servido en varios llamamientos dentro de La Iglesia de Jesucristo de los Santos de los Últimos Días, experiencias que me han ayudado a comprender mejor a las personas y sus desafíos.</p>
+            <h2>Sobre el Autor</h2>
+            
+            <p>Soy Sergio Nieto, economista y escritor. Mi fe y mi familia son el centro de mi vida y han influido profundamente en mi manera de ver el mundo y de escribir. A lo largo de los años he servido en varios llamamientos dentro de La Iglesia de Jesucristo de los Santos de los Últimos Días, experiencias que me han ayudado a comprender mejor a las personas y sus desafíos.</p>
 
-    <p>Estudié Economía en BYU–Idaho y obtuve un doctorado en la Universidad de Baja California. Esa formación me ha dado herramientas para analizar ideas y expresarlas con claridad.</p>
+            <p>Estudié Economía en BYU–Idaho y obtuve un doctorado en la Universidad de Baja California. Esa formación me ha dado herramientas para analizar ideas y expresarlas con claridad.</p>
 
-    <p>Estoy casado con Marion Nieto, y juntos criamos a nuestros seis hijos, quienes son mi mayor inspiración y la razón por la que disfruto crear historias que edifiquen y acompañen.</p>
+            <p>Estoy casado con Marion Nieto, y juntos criamos a nuestros seis hijos, quienes son mi mayor inspiración y la razón por la que disfruto crear historias que edifiquen y acompañen.</p>
 
-    <p>Escribo para compartir lo que aprendo sobre el crecimiento personal, la familia y la fe a través de relatos sencillos que buscan inspirar y dar esperanza.</p>
-</section>
-
+            <p>Escribo para compartir lo que aprendo sobre el crecimiento personal, la familia y la fe a través de relatos sencillos que buscan inspirar y dar esperanza.</p>
+        </section>
     </main>
     
     <footer>
         <div class="container">
             <p>© 2023 Sergio Nieto - Todos los derechos reservados</p>
             <div class="Contacto">
-                <a href="#">Contacto checonietoh@gmail.com</a>
+                <a href="mailto:checonietoh@gmail.com">Contacto: checonietoh@gmail.com</a>
             </div>
         </div>
     </footer>
-    <!-- Enhanced Flying Books Animation -->
-<div class="flying-book">
-    <div class="spine-title">CRÓNICAS</div>
-    <div class="cover-detail"></div>
-</div>
-<div class="flying-book">
-    <div class="spine-title">ANIMALITOS</div>
-    <div class="cover-detail"></div>
-</div>
-<div class="flying-book">
-    <div class="spine-title">RANCHERO</div>
-    <div class="cover-detail"></div>
-</div>
+    
+    <!-- Enhanced Flying Books with Real Covers -->
+    <div class="flying-book cronicas">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+        <div class="book-cover"></div>
+    </div>
+    <div class="flying-book animalitos">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+        <div class="book-cover"></div>
+    </div>
+    <div class="flying-book ranchero">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+        <div class="book-cover"></div>
+    </div>
+    <div class="flying-book misionero">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+        <div class="book-cover"></div>
+    </div>
 </body>
 </html>
