@@ -222,7 +222,7 @@
             }
         }
         
-        /* Enhanced Flying Book Animation with Real Covers */
+        /* Single Flying Book Animation with Random Covers */
         .flying-book {
             position: fixed;
             width: 80px;
@@ -232,6 +232,12 @@
             animation: flyAround 25s linear infinite, float 4s ease-in-out infinite;
             transform-style: preserve-3d;
             filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.4));
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .flying-book.active {
+            opacity: 1;
         }
 
         .book-cover {
@@ -352,26 +358,6 @@
             }
         }
 
-        /* Different animation paths for each book */
-        .flying-book.cronicas {
-            animation: flyAround 28s linear infinite, float 5s ease-in-out infinite;
-        }
-
-        .flying-book.animalitos {
-            animation: flyAround 32s linear infinite, float 4.5s ease-in-out infinite;
-            animation-delay: -7s;
-        }
-
-        .flying-book.ranchero {
-            animation: flyAround 30s linear infinite, float 5.5s ease-in-out infinite;
-            animation-delay: -14s;
-        }
-
-        .flying-book.misionero {
-            animation: flyAround 26s linear infinite, float 4s ease-in-out infinite;
-            animation-delay: -21s;
-        }
-
         /* Pause animation when hovering over important content */
         .book-card:hover ~ .flying-book,
         .profile-section:hover ~ .flying-book,
@@ -463,26 +449,42 @@
         </div>
     </footer>
     
-    <!-- Enhanced Flying Books with Real Covers -->
-    <div class="flying-book cronicas">
+    <!-- Single Flying Book Container -->
+    <div class="flying-book cronicas active">
         <div class="book-spine"></div>
         <div class="book-pages"></div>
         <div class="book-cover"></div>
     </div>
-    <div class="flying-book animalitos">
-        <div class="book-spine"></div>
-        <div class="book-pages"></div>
-        <div class="book-cover"></div>
-    </div>
-    <div class="flying-book ranchero">
-        <div class="book-spine"></div>
-        <div class="book-pages"></div>
-        <div class="book-cover"></div>
-    </div>
-    <div class="flying-book misionero">
-        <div class="book-spine"></div>
-        <div class="book-pages"></div>
-        <div class="book-cover"></div>
-    </div>
+
+    <script>
+        // JavaScript to randomly switch between book covers
+        const bookClasses = ['cronicas', 'animalitos', 'ranchero', 'misionero'];
+        const flyingBook = document.querySelector('.flying-book');
+        
+        function changeBook() {
+            // Fade out current book
+            flyingBook.classList.remove('active');
+            
+            setTimeout(() => {
+                // Remove all book classes
+                bookClasses.forEach(bookClass => {
+                    flyingBook.classList.remove(bookClass);
+                });
+                
+                // Add random book class
+                const randomBook = bookClasses[Math.floor(Math.random() * bookClasses.length)];
+                flyingBook.classList.add(randomBook);
+                
+                // Fade in new book
+                flyingBook.classList.add('active');
+            }, 1000);
+        }
+        
+        // Change book every 8 seconds
+        setInterval(changeBook, 8000);
+        
+        // Initial random book
+        changeBook();
+    </script>
 </body>
 </html>
