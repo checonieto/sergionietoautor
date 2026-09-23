@@ -229,6 +229,7 @@
 
         .reels-row {
             display: flex;
+            justify-content: center;
             gap: 0.6rem;
         }
 
@@ -237,7 +238,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 120px;
+            width: 140px;
             aspect-ratio: 9 / 16;
             border-radius: 8px;
             text-decoration: none;
@@ -251,6 +252,7 @@
             content: "";
             position: absolute;
             inset: 0;
+            pointer-events: none;
             background: repeating-linear-gradient(
                 135deg,
                 rgba(255,255,255,0.04) 0px,
@@ -603,13 +605,7 @@
                     </div>
                     <div class="book-content">
                         <h3 class="book-title">Tacoeconomics <span class="lang-tag">EN</span></h3>
-                        <p class="book-description">Próximo libro en inglés. Reemplaza este texto con la sinopsis cuando esté lista.</p>
-                        <div class="book-videos" data-book="tacoeconomics">
-                            <span class="videos-label">Video</span>
-                            <div class="reels-row">
-                                <a class="reel-slot" href="#" data-video="" target="_blank" rel="noopener" aria-label="Video de Tacoeconomics"><span class="reel-play">▶</span></a>
-                            </div>
-                        </div>
+                        <p class="book-description">How a taco stand explains the whole economy.<br><br>Every idea in the book starts at the same counter: one stand, one cook, one line of hungry customers — and the prices that move every time something in the world changes.</p>
                         <a href="http://tacoeconomics.com" class="amazon-btn" target="_blank">Visitar tacoeconomics.com</a>
                     </div>
                 </div>
