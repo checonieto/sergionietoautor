@@ -14,27 +14,27 @@
             --text: #212121;
             --text-light: #757575;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #f9f9f9;
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -42,14 +42,14 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-        
+
         .profile-section {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 1rem;
         }
-        
+
         .profile-img {
             width: 150px;
             height: 150px;
@@ -59,19 +59,19 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             margin-bottom: 1rem;
         }
-        
+
         .profile-text {
             max-width: 800px;
             text-align: center;
             padding: 0 20px;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
+
         h2 {
             font-size: 1.8rem;
             margin: 2rem 0 1rem;
@@ -79,24 +79,24 @@
             border-bottom: 3px solid var(--secondary);
             padding-bottom: 0.5rem;
         }
-        
+
         h3 {
             font-size: 1.4rem;
             margin: 1.5rem 0 0.5rem;
             color: var(--secondary);
         }
-        
+
         p {
             margin-bottom: 1rem;
         }
-        
+
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
-        
+
         .book-card {
             background: white;
             border-radius: 8px;
@@ -107,12 +107,12 @@
             flex-direction: column;
             border-top: 4px solid var(--secondary);
         }
-        
+
         .book-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 20px rgba(0,0,0,0.2);
         }
-        
+
         .book-img-container {
             height: 300px;
             overflow: hidden;
@@ -121,40 +121,188 @@
             justify-content: center;
             background: linear-gradient(135deg, var(--primary), #283593);
         }
-        
+
         .book-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
+        .placeholder-cover {
+            position: relative;
+            flex-direction: column;
+            gap: 0.6rem;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--primary),
+                var(--primary) 10px,
+                #22297a 10px,
+                #22297a 20px
+            );
+        }
+
+        .placeholder-badge {
+            background: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .placeholder-title {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .lang-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: white;
+            background: var(--secondary);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-left: 0.4rem;
+        }
+
         .book-card:hover .book-img {
             transform: scale(1.05);
         }
-        
+
         .book-content {
             padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        
+
         .book-title {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: var(--primary);
         }
-        
+
         .book-description {
             color: var(--text-light);
             font-size: 0.9rem;
             line-height: 1.5;
-            flex-grow: 1;
             margin-bottom: 1rem;
         }
-        
+
+        /* Video reels section */
+        .book-videos {
+            margin-bottom: 1.2rem;
+        }
+
+        .videos-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.6rem;
+        }
+
+        .videos-label::before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 8px solid var(--secondary);
+        }
+
+        .reels-row {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .reel-slot {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            aspect-ratio: 9 / 16;
+            border-radius: 8px;
+            text-decoration: none;
+            background: linear-gradient(160deg, var(--primary) 0%, #000 140%);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .reel-slot::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                135deg,
+                rgba(255,255,255,0.04) 0px,
+                rgba(255,255,255,0.04) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+        }
+
+        .reel-slot:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 8px 14px rgba(0,0,0,0.35);
+        }
+
+        .reel-play {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .reel-number {
+            position: absolute;
+            top: 4px;
+            left: 6px;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.85);
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .reel-slot iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (max-width: 380px) {
+            .reels-row {
+                gap: 0.4rem;
+            }
+        }
+
         .amazon-btn {
             display: inline-block;
             background: linear-gradient(to right, var(--secondary), var(--accent));
@@ -168,13 +316,13 @@
             margin-top: auto;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
+
         .amazon-btn:hover {
             background: linear-gradient(to right, #c62828, #ff6b6b);
             box-shadow: 0 6px 8px rgba(0,0,0,0.2);
             transform: translateY(-2px);
         }
-        
+
         footer {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
@@ -182,14 +330,14 @@
             padding: 2rem 0;
             margin-top: 3rem;
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-top: 1rem;
         }
-        
+
         .social-links a {
             color: white;
             text-decoration: none;
@@ -198,30 +346,30 @@
             border-radius: 4px;
             transition: all 0.3s ease;
         }
-        
+
         .social-links a:hover {
             background-color: var(--secondary);
             border-color: var(--secondary);
         }
-        
+
         @media (max-width: 768px) {
             .books-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             h2 {
                 font-size: 1.5rem;
             }
-            
+
             .book-img-container {
                 height: 250px;
             }
         }
-        
+
         /* Single Flying Book Animation with Random Covers */
         .flying-book {
             position: fixed;
@@ -249,7 +397,7 @@
             border-radius: 3px 8px 8px 3px;
             transform-origin: left center;
             transition: transform 0.5s ease;
-            box-shadow: 
+            box-shadow:
                 4px 0 8px rgba(0,0,0,0.3),
                 inset 2px 0 0 rgba(255,255,255,0.1);
         }
@@ -272,7 +420,7 @@
             top: 3%;
             bottom: 3%;
             width: 78px;
-            background: 
+            background:
                 repeating-linear-gradient(
                     to right,
                     #f8f8f8 0px,
@@ -376,7 +524,7 @@
             </div>
         </div>
     </header>
-    
+
     <main class="container">
         <section id="books">
             <h2>Mis libros para jóvenes</h2>
@@ -388,10 +536,16 @@
                     <div class="book-content">
                         <h3 class="book-title">Crónicas de Mosiah Carmona</h3>
                         <p class="book-description">Una conmovedora historia de amor que desafía las barreras sociales, ambientada en una comunidad donde la fe y las apariencias a menudo caminan de la mano. Mosíah, un joven de humildes recursos, lucha por construir un futuro mientras se enfrenta a diferencias sociales, presiones familiares y secretos del pasado.</p>
-                        <a href="https://a.co/d/eVLfltx" class="amazon-btn" target="_blank">Comprar en Amazon</a>
+                        <div class="book-videos" data-book="cronicas">
+                            <span class="videos-label">Video</span>
+                            <div class="reels-row">
+                                <a class="reel-slot" href="https://youtube.com/shorts/ezhR3XNWRcs?feature=share" data-video="https://youtube.com/shorts/ezhR3XNWRcs?feature=share" target="_blank" rel="noopener" aria-label="Video de Crónicas de Mosiah Carmona"><span class="reel-play">▶</span></a>
+                            </div>
+                        </div>
+                        <a href="https://a.co/d/07Ca4yBm" class="amazon-btn" target="_blank">Comprar en Amazon</a>
                     </div>
                 </div>
-                
+
                 <div class="book-card">
                     <div class="book-img-container">
                         <img src="animalitos.jpg" alt="Animalitos Sabios" class="book-img">
@@ -399,10 +553,16 @@
                     <div class="book-content">
                         <h3 class="book-title">Animalitos Sabios</h3>
                         <p class="book-description">Siete inspiradoras historias que exploran el desarrollo del capital humano desde una perspectiva mental y emocional. A través de estas fábulas, los lectores descubrirán principios fundamentales para fortalecer su resiliencia, motivación y crecimiento personal.</p>
-                        <a href="https://a.co/d/hy2OwdZ" class="amazon-btn" target="_blank">Comprar en Amazon</a>
+                        <div class="book-videos" data-book="animalitos">
+                            <span class="videos-label">Video</span>
+                            <div class="reels-row">
+                                <a class="reel-slot" href="https://youtube.com/shorts/fZW4l1eas9w?feature=share" data-video="https://youtube.com/shorts/fZW4l1eas9w?feature=share" target="_blank" rel="noopener" aria-label="Video de Animalitos Sabios"><span class="reel-play">▶</span></a>
+                            </div>
+                        </div>
+                        <a href="https://a.co/d/02L6esxg" class="amazon-btn" target="_blank">Comprar en Amazon</a>
                     </div>
                 </div>
-                
+
                 <div class="book-card">
                     <div class="book-img-container">
                         <img src="rancherodescongelado.jpg" alt="Ranchero Descongelado" class="book-img">
@@ -410,10 +570,16 @@
                     <div class="book-content">
                         <h3 class="book-title">Ranchero Descongelado</h3>
                         <p class="book-description">La asombrosa historia de Ramiro Mendoza, un humilde campesino que resurge en el siglo XXI después de permanecer congelado desde 1886. Esta novela explora el contraste generacional, la búsqueda de identidad y el choque entre tradición y modernidad.</p>
-                        <a href="https://a.co/d/hy2OwdZ" class="amazon-btn" target="_blank">Comprar en Amazon</a>
+                        <div class="book-videos" data-book="ranchero">
+                            <span class="videos-label">Video</span>
+                            <div class="reels-row">
+                                <a class="reel-slot" href="https://youtube.com/shorts/eeRsXlaviNg?feature=share" data-video="https://youtube.com/shorts/eeRsXlaviNg?feature=share" target="_blank" rel="noopener" aria-label="Video de Ranchero Descongelado"><span class="reel-play">▶</span></a>
+                            </div>
+                        </div>
+                        <a href="https://a.co/d/02i7QVxk" class="amazon-btn" target="_blank">Comprar en Amazon</a>
                     </div>
                 </div>
-                
+
                 <div class="book-card">
                     <div class="book-img-container">
                         <img src="mascarademisionero.jpg" alt="Máscara de Misionero" class="book-img">
@@ -421,15 +587,38 @@
                     <div class="book-content">
                         <h3 class="book-title">Máscara de Misionero</h3>
                         <p class="book-description">La intensa historia de Emilio Jiménez, quien experimenta un cambio de corazón durante sus siete meses como misionero, solo para enfrentar el momento en que alguien descubre su verdadera identidad. Una exploración profunda sobre la redención y la autenticidad.</p>
-                        <a href="https://a.co/d/eVLfltx" class="amazon-btn" target="_blank">Comprar en Amazon</a>
+                        <div class="book-videos" data-book="misionero">
+                            <span class="videos-label">Video</span>
+                            <div class="reels-row">
+                                <a class="reel-slot" href="https://youtube.com/shorts/zDx4-57n5rA?feature=share" data-video="https://youtube.com/shorts/zDx4-57n5rA?feature=share" target="_blank" rel="noopener" aria-label="Video de Máscara de Misionero"><span class="reel-play">▶</span></a>
+                            </div>
+                        </div>
+                        <a href="https://a.co/d/01KPWE7D" class="amazon-btn" target="_blank">Comprar en Amazon</a>
+                    </div>
+                </div>
+                <div class="book-card coming-soon">
+                    <div class="book-img-container placeholder-cover">
+                        <span class="placeholder-badge">Próximamente</span>
+                        <span class="placeholder-title">Tacoeconomics</span>
+                    </div>
+                    <div class="book-content">
+                        <h3 class="book-title">Tacoeconomics <span class="lang-tag">EN</span></h3>
+                        <p class="book-description">Próximo libro en inglés. Reemplaza este texto con la sinopsis cuando esté lista.</p>
+                        <div class="book-videos" data-book="tacoeconomics">
+                            <span class="videos-label">Video</span>
+                            <div class="reels-row">
+                                <a class="reel-slot" href="#" data-video="" target="_blank" rel="noopener" aria-label="Video de Tacoeconomics"><span class="reel-play">▶</span></a>
+                            </div>
+                        </div>
+                        <a href="http://tacoeconomics.com" class="amazon-btn" target="_blank">Visitar tacoeconomics.com</a>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section id="about">
             <h2>Sobre el Autor</h2>
-            
+
             <p>Soy Sergio Nieto, economista y escritor. Mi fe y mi familia son el centro de mi vida y han influido profundamente en mi manera de ver el mundo y de escribir. A lo largo de los años he servido en varios llamamientos dentro de La Iglesia de Jesucristo de los Santos de los Últimos Días, experiencias que me han ayudado a comprender mejor a las personas y sus desafíos.</p>
 
             <p>Estudié Economía en BYU–Idaho y obtuve un doctorado en la Universidad de Baja California. Esa formación me ha dado herramientas para analizar ideas y expresarlas con claridad.</p>
@@ -439,7 +628,7 @@
             <p>Escribo para compartir lo que aprendo sobre el crecimiento personal, la familia y la fe a través de relatos sencillos que buscan inspirar y dar esperanza.</p>
         </section>
     </main>
-    
+
     <footer>
         <div class="container">
             <p>© 2023 Sergio Nieto - Todos los derechos reservados</p>
@@ -448,7 +637,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- Single Flying Book Container -->
     <div class="flying-book cronicas active">
         <div class="book-spine"></div>
@@ -460,31 +649,62 @@
         // JavaScript to randomly switch between book covers
         const bookClasses = ['cronicas', 'animalitos', 'ranchero', 'misionero'];
         const flyingBook = document.querySelector('.flying-book');
-        
+
         function changeBook() {
             // Fade out current book
             flyingBook.classList.remove('active');
-            
+
             setTimeout(() => {
                 // Remove all book classes
                 bookClasses.forEach(bookClass => {
                     flyingBook.classList.remove(bookClass);
                 });
-                
+
                 // Add random book class
                 const randomBook = bookClasses[Math.floor(Math.random() * bookClasses.length)];
                 flyingBook.classList.add(randomBook);
-                
+
                 // Fade in new book
                 flyingBook.classList.add('active');
             }, 1000);
         }
-        
+
         // Change book every 8 seconds
         setInterval(changeBook, 8000);
-        
+
         // Initial random book
         changeBook();
+
+        // ---- Video reels: once you have the 4 YouTube links per book, ----
+        // fill in the data-video attribute of each .reel-slot with the
+        // full YouTube URL (watch or short link) and this script will
+        // turn that slot into a vertical embedded player automatically.
+        document.querySelectorAll('.reel-slot').forEach(slot => {
+            const url = slot.getAttribute('data-video');
+            if (!url) return; // still a placeholder, leave as-is
+
+            let videoId = '';
+            try {
+                const u = new URL(url);
+                if (u.hostname.includes('youtu.be')) {
+                    videoId = u.pathname.slice(1);
+                } else if (u.pathname.includes('/shorts/')) {
+                    videoId = u.pathname.split('/shorts/')[1];
+                } else {
+                    videoId = u.searchParams.get('v');
+                }
+            } catch (e) {
+                videoId = '';
+            }
+
+            if (videoId) {
+                slot.removeAttribute('href');
+                slot.removeAttribute('target');
+                slot.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" title="video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+            } else {
+                slot.href = url; // fallback: just link out to whatever URL was given
+            }
+        });
     </script>
 </body>
 </html>
