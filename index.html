@@ -114,6 +114,7 @@
         }
 
         .book-img-container {
+            position: relative;
             height: 300px;
             overflow: hidden;
             display: flex;
@@ -143,6 +144,9 @@
         }
 
         .placeholder-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
             background: var(--accent);
             color: white;
             font-size: 0.75rem;
@@ -152,6 +156,7 @@
             padding: 0.25rem 0.7rem;
             border-radius: 999px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            z-index: 1;
         }
 
         .placeholder-title {
@@ -598,15 +603,27 @@
                         <a href="https://a.co/d/01KPWE7D" class="amazon-btn" target="_blank">Comprar en Amazon</a>
                     </div>
                 </div>
+
                 <div class="book-card coming-soon">
-                    <div class="book-img-container placeholder-cover">
-                        <span class="placeholder-badge">Próximamente</span>
-                        <span class="placeholder-title">Tacoeconomics</span>
+                    <div class="book-img-container">
+                        <img src="taconomics.jpg" alt="Tacoeconomics" class="book-img">
+                        <span class="placeholder-badge">Próximamente 2027</span>
                     </div>
                     <div class="book-content">
                         <h3 class="book-title">Tacoeconomics <span class="lang-tag">EN</span></h3>
                         <p class="book-description">How a taco stand explains the whole economy.<br><br>Every idea in the book starts at the same counter: one stand, one cook, one line of hungry customers — and the prices that move every time something in the world changes.</p>
                         <a href="http://tacoeconomics.com" class="amazon-btn" target="_blank">Visitar tacoeconomics.com</a>
+                    </div>
+                </div>
+
+                <div class="book-card coming-soon">
+                    <div class="book-img-container">
+                        <img src="lamanitaslibro.jpg" alt="Uno de los Dos Mil" class="book-img">
+                        <span class="placeholder-badge">Próximamente 2027</span>
+                    </div>
+                    <div class="book-content">
+                        <h3 class="book-title">Uno de los Dos Mil</h3>
+                        <p class="book-description">Antes de ser soldados, fueron hijos. Crecieron escuchando las historias de sus padres, hombres que habían conocido la violencia y que un día decidieron enterrar sus armas para siempre. Pero cuando la guerra llegó a Jersón, dos mil jóvenes levantaron aquellas armas que sus padres habían jurado nunca volver a tomar.<br><br>Kenán es uno de ellos. A sus diecisiete años, lleva consigo la fe de su madre, las enseñanzas de su padre y una promesa hecha cuando era niño: nunca quitar la vida a otro hombre. Ahora, frente a una guerra que amenaza a su pueblo, tendrá que descubrir qué significa realmente ser valiente, qué precio tiene proteger a quienes ama y qué clase de hombre está dispuesto a convertirse.<br><br>Uno de los Dos Mil es la historia de un joven que pudo haber estado allí. Una historia de amistad, miedo, fe, guerra y el difícil paso de la niñez a la adultez, contada desde el corazón de uno de los dos mil hijos de Helamán.</p>
                     </div>
                 </div>
             </div>
